@@ -1,0 +1,149 @@
+I added this file to the Github folder
+
+Step 4 : Add your github email and username to git
+  git config --global user.email "yourGitHub@email.com"
+  git config --global user.name "yourGitHubusername"
+
+
+Step 5 : Add file/folders to git - tracking
+
+Step 6 : Commands
+   - terminal - goto the location of the folder/project
+          - git init
+   - git status
+   - git add
+   - git commit -m “…..”
+   - git remote add origin “location of remote repo”
+   - git push -u origin master
+   - git log
+   - git --help
+
+Github commands
+
+git config --global user.email "umeshchandra457@gmail.com"
+git config --global user.name "umeshchandra457@gmail.com"
+git init---- to initialise
+touch filename----to create a file in the folder
+git status------ to check the status of the folder
+git add filename ------add to the repository
+
+git commit -m "message"----to commit to the GitHub repository
+
+git remote add origin "location of the remote repository"(Browser location)
+
+git push -u origin master-----to push the file to the remote repository(browser)
+
+
+For autocomplete
+——————————
+Step 1 :  goto terminal
+        put git-completion.bash script in your home directory
+curl https://raw.githubusercontent.com/git... -o ~/.git-completion.bash
+
+
+Step 2 : Add following line to your .bash_profile. 
+       This tells bash to run git autocomplete script if it exists
+
+vi ~/.bash_profile
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+
+
+For enabling git colors
+————————————
+
+Step 1 : check if colouring is already enabled
+  terminal - git config color.ui
+
+Step 2 : enable colouring 
+  git config --global color.ui true
+
+
+For creating the new branch
+---------------------------
+Step 1 : Create branch 
+   git branch “branch name”
+
+Step 2 : Checkout branch
+   git checkout “branch name”
+
+Step 3 : Merge new branch in master branch
+   git merge “branch name”
+
+Step 4 : Delete branch
+   git branch -d “branch name”    — delete from local
+   git push origin —delete “branch name”   — delete from remote
+
+
+Git TAGS - What | Why | When | How
+Today We will learn:
+-------------------------------
+1. What are tags / releases
+2. Why should i create TAGs
+3. When to create TAGs
+4. How to create TAGs in git
+     create | show | publish | delete
+
+Step 1:
+Checkout the branch where you want to create the tag
+git checkout "branch name"
+example : git checkout master
+________________________________________________________
+
+Step 2:
+Create tag with some name
+git tag "tag name"
+example : git tag v1.0
+git tag -a v1.0 -m "ver 1 of .."  (to create annotated tags) 
+________________________________________________________
+
+Step 3:
+Display or Show tags
+git tag
+git show v1.0
+git tag -l “v1.*”
+________________________________________________________
+
+Step 4:
+Push tags to remote
+git push origin v1.0
+git push origin --tags
+git push --tags 
+(to push all tags at once)
+________________________________________________________
+
+Step 5:
+Delete tags (if required only)
+to delete tags from local :
+git tag -d v1.0
+git tag --delete v1.0
+
+to delete tags from remote :
+git push origin -d v1.0
+git push origin --delete v1.0
+git push origin :v1.0
+
+to delete multiple tags at once:
+git tag -d v1.0 v1.1 (local)
+git push origin -d v1.0 v1.1 (remote)
+
+________________________________________________________
+
+
+Checking out TAGS
+
+We cannot checkout tags in git
+We can create a branch from a tag and checkout the branch
+git checkout -b "branch name" "tag name"
+example : git checkout -b ReleaseVer1 v1.0
+________________________________________________________
+
+Creating TAGS from past commits
+
+git tag "tag name" "reference of commit"
+example : git tag  v1.2 5fcdb03
+
+
